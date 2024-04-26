@@ -1,0 +1,1 @@
+docker run -d -p 4901:6379 --name finotech_redis redis

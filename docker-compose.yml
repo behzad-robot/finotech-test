@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  nestjs:
+    build: .
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+      - redis
+    environment:
+      PORT: 3000
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USERNAME: finotech
+      DATABASE_PASSWORD: finotech
+      DATABASE_NAME: finotech
+      REDIS_URL: redis://redis:6379
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "4900:5432"
+    environment:
+      POSTGRES_USER: finotech
+      POSTGRES_PASSWORD: finotech
+      POSTGRES_DB: finotech
+
+  redis:
+    image: redis:latest
+    ports:
+      - "4901:6379"

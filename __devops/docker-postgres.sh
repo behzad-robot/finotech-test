@@ -1,0 +1,1 @@
+docker run --name finotech_nest_postgres -e POSTGRES_USER=finotech -e POSTGRES_PASSWORD=finotech2024 -e POSTGRES_DB=finotech -p 4900:5432 -v /root/finotech/postgres-data:/var/lib/postgresql/data -d postgres
